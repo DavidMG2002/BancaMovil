@@ -106,7 +106,7 @@ fun HomeView(
             }
 
             OutlinedButton(
-                onClick = { navController.navigate("historial") },
+                onClick = { navController.navigate("historial/$documento") },
                 modifier = Modifier.weight(1f).height(54.dp),
                 shape = RoundedCornerShape(14.dp),
                 colors = ButtonDefaults.outlinedButtonColors(contentColor = MaterialTheme.colorScheme.onBackground)

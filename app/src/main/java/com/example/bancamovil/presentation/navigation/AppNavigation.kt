@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.bancamovil.presentation.history.HistoryView
 import com.example.bancamovil.presentation.home.HomeView
 import com.example.bancamovil.presentation.login.LoginView
 import com.example.bancamovil.presentation.profile.ProfileView
@@ -34,6 +35,10 @@ fun AppNavigation() {
         composable("profile/{documentNumber}") { backStackEntry ->
             val documentNumber = backStackEntry.arguments?.getString("documentNumber") ?: ""
             ProfileView(documentNumber = documentNumber, navController = navController)
+        }
+        composable("historial/{documentNumber}") { backStackEntry ->
+            val documentNumber = backStackEntry.arguments?.getString("documentNumber") ?: ""
+            HistoryView(documentNumber = documentNumber, navController = navController)
         }
     }
 }

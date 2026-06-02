@@ -44,4 +44,9 @@
     <string name="msg_insufficient_balance">Saldo insuficiente</string>
     <string name="msg_account_not_found">Cuenta no existe</string>
     <string name="msg_invalid_amount">Monto inválido</string>
+    <!--HISTORIAL-->
+    <string name="history_title">Historial</string>
+    <string name="text_no_transactions">Sin transacciones</string>
+    <string name="text_sent">Enviado</string>
+    <string name="text_received">Recibido</string>
 </resources>
