@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">BancaMovil</string>
+
+    <!--LOGIN-->
+    <string name="login_title">BANCAMOVIL</string>
+    <string name="label_document_number">Número de documento</string>
+    <string name="label_password">Contraseña</string>
+    <string name="btn_login">Entra</string>
+    <string name="btn_forgot_password">¿Olvidaste tu contraseña?</string>
+    <string name="text_no_account">¿No tienes una cuenta?</string>
+    <string name="text_register">Crea tu cuenta</string>
+    <string name="error_login_failed">Credenciales incorrectas</string>
+    <string name="text_loading">Cargando</string>
+    <string name="by_bancamovil">por BancaMovil</string>
+
+    <!--REGISTER-->
+    <string name="register_title">Registro</string>
+    <string name="label_full_name">Nombre completo</string>
+    <string name="label_confirm_password">Confirmar contraseña</string>
+    <string name="btn_register">Registrarse</string>
+    <string name="text_already_have_account">¿Ya tienes cuenta?</string>
+    <string name="text_login_here">Inicia sesión</string>
+    <string name="dialog_success_title">Éxito</string>
+    <string name="dialog_error_title">Error</string>
+    <string name="register_success_message">Cuenta creada correctamente</string>
+    <string name="btn_accept">Aceptar</string>
+    <string name="error_passwords_match">Las contraseñas no coinciden</string>
+    <string name="error_register_failed">Hubo un error al crear la cuenta</string>
+    <string name="error_fields_empty">Por favor completa todos los campos</string>
+    <string name="error_document_length">El documento debe tener al menos 6 dígitos</string>
+
+    <!--HOME-->
+    <string name="text_hello">Hola</string>
+    <string name="text_profile">Perfil</string>
+    <string name="text_available">Disponible</string>
+    <string name="btn_transfer">Transferir</string>
+    <string name="btn_history">Historial</string>
+
+    <!--TRANSFERENCIAS-->
+    <string name="transfer_title">Transferir Dinero</string>
+    <string name="label_destination_account">Cuenta destino</string>
+    <string name="label_amount">Monto</string>
+    <string name="msg_transfer_success">Transferencia realizada</string>
+    <string name="msg_insufficient_balance">Saldo insuficiente</string>
+    <string name="msg_account_not_found">Cuenta no existe</string>
+    <string name="msg_invalid_amount">Monto inválido</string>
+</resources>

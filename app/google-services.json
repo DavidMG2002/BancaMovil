@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "673270833574",
+    "firebase_url": "https://mi-banca-movil-default-rtdb.firebaseio.com",
+    "project_id": "mi-banca-movil",
+    "storage_bucket": "mi-banca-movil.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:673270833574:android:f06035bd162eea179aaf67",
+        "android_client_info": {
+          "package_name": "com.example.bancamovil"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzb-v--XeHTB5AAN5WtmSV2ezXE7M6FcI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
