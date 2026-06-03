@@ -16,6 +16,8 @@ class RegisterViewModel(
     private val documentDataSource: DocumentCameraDataSource = DocumentCameraDataSource()
 ) : ViewModel() {
 
+    private val specialChars = Regex("[!@#\$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>/?]")
+
     fun register(
         fullName: String,
         documentNumber: String,
@@ -29,8 +31,20 @@ class RegisterViewModel(
             onResult(false, R.string.error_fields_empty)
             return
         }
+        if (fullName.length > 50) {
+            onResult(false, R.string.error_name_length)
+            return
+        }
         if (documentNumber.length < 6) {
             onResult(false, R.string.error_document_length)
+            return
+        }
+        if (password.length < 6 || password.length > 20) {
+            onResult(false, R.string.error_password_length)
+            return
+        }
+        if (!specialChars.containsMatchIn(password)) {
+            onResult(false, R.string.error_password_special_char)
             return
         }
         if (password != confirmPassword) {

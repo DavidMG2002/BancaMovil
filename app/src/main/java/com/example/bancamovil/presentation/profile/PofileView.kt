@@ -2,8 +2,10 @@ package com.example.bancamovil.presentation.profile
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -28,6 +30,7 @@ fun ProfileView(
     var fullName by remember { mutableStateOf("") }
     var saldo by remember { mutableStateOf("0") }
     var showLoadingAlert by remember { mutableStateOf(true) }
+    val scrollState = rememberScrollState()
 
     val documentImageUrl = "https://roolsxviqdwchomspvsz.supabase.co/storage/v1/object/public/documentos/documento_$documentNumber.jpg"
 
@@ -58,7 +61,8 @@ fun ProfileView(
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
             .safeDrawingPadding()
-            .padding(horizontal = 24.dp),
+            .padding(horizontal = 24.dp)
+            .verticalScroll(scrollState),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(modifier = Modifier.height(24.dp))
@@ -142,6 +146,25 @@ fun ProfileView(
                 .clip(RoundedCornerShape(16.dp))
                 .background(MaterialTheme.colorScheme.surface)
         )
+
+        Spacer(modifier = Modifier.height(32.dp))
+
+        // Botón cerrar sesión con color rosa
+        Button(
+            onClick = { navController.popBackStack() },
+            modifier = Modifier.fillMaxWidth().height(54.dp),
+            shape = RoundedCornerShape(50.dp),
+            colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary)
+        ) {
+            Text(
+                "Volver al inicio",
+                fontSize = 15.sp,
+                fontWeight = FontWeight.SemiBold,
+                color = MaterialTheme.colorScheme.onPrimary
+            )
+        }
+
+        Spacer(modifier = Modifier.height(24.dp))
     }
 }
 

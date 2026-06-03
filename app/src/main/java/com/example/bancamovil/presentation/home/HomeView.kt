@@ -53,12 +53,10 @@ fun HomeView(
                 }
                 Spacer(modifier = Modifier.width(10.dp))
                 Column {
-                    Text(stringResource(R.string.text_hello), color = MaterialTheme.colorScheme.secondary, fontSize = 13.sp)
                     Text(
-                        text = viewModel.fullName.value.ifEmpty { "Usuario" },
-                        color = MaterialTheme.colorScheme.onBackground,
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Bold
+                        text = "Bienvenido, ${viewModel.fullName.value.ifEmpty { "Usuario" }}",
+                        color = MaterialTheme.colorScheme.secondary,
+                        fontSize = 13.sp
                     )
                 }
             }

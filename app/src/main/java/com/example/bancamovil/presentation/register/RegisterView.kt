@@ -28,6 +28,7 @@ import coil.compose.AsyncImage
 import com.example.bancamovil.R
 import java.io.File
 
+
 @Composable
 fun RegisterView(
     viewModel: RegisterViewModel = viewModel(),
@@ -222,10 +223,9 @@ fun RegisterView(
                 modifier = Modifier.fillMaxWidth().height(54.dp),
                 shape = RoundedCornerShape(50.dp),
                 colors = ButtonDefaults.outlinedButtonColors(
-                    contentColor = if (documentUploaded)
-                        MaterialTheme.colorScheme.primary
-                    else MaterialTheme.colorScheme.onBackground
-                )
+                    contentColor = MaterialTheme.colorScheme.primary
+                ),
+                border = androidx.compose.foundation.BorderStroke(1.5.dp, MaterialTheme.colorScheme.primary)
             ) {
                 Text(
                     text = if (documentImageUri == null) "Tomar foto del documento"

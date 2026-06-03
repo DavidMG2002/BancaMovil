@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.bancamovil.R
+import com.example.bancamovil.domain.model.Transfer
 import java.util.Locale
 
 @Composable
@@ -80,7 +81,7 @@ fun HistoryView(
 }
 
 @Composable
-private fun TransferenciaItem(transferencia: Transferencia) {
+private fun TransferenciaItem(transferencia: Transfer) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),

@@ -14,4 +14,8 @@ class FirebaseUserDataSource {
     fun saveUser(documentNumber: String, userData: Map<String, Any>): Task<Void> {
         return database.child(documentNumber).setValue(userData)
     }
+
+    fun updateBalance(documentNumber: String, newBalance: Double): Task<Void> {
+        return database.child(documentNumber).child("saldo").setValue(newBalance)
+    }
 }

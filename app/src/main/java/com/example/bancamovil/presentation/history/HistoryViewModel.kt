@@ -3,42 +3,24 @@ package com.example.bancamovil.presentation.history
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.google.firebase.database.FirebaseDatabase
+import com.example.bancamovil.data.repository.FirebaseUserRepositoryImpl
+import com.example.bancamovil.domain.model.Transfer
+import com.example.bancamovil.domain.usecase.GetHistoryUseCase
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
 
-data class Transferencia(
-    val id: String,
-    val monto: Double,
-    val cuenta: String,
-    val fecha: String,
-    val tipo: String
-)
+class HistoryViewModel(
+    private val getHistoryUseCase: GetHistoryUseCase = GetHistoryUseCase(FirebaseUserRepositoryImpl())
+) : ViewModel() {
 
-class HistoryViewModel : ViewModel() {
-    val transferencias = mutableStateOf<List<Transferencia>>(emptyList())
+    val transferencias = mutableStateOf<List<Transfer>>(emptyList())
     val isLoading = mutableStateOf(true)
-
-    private val database = FirebaseDatabase.getInstance().getReference("transferencias")
 
     fun cargarHistorial(documentNumber: String) {
         viewModelScope.launch {
             try {
-                val snapshot = database.child(documentNumber).get().await()
-                val lista = mutableListOf<Transferencia>()
-                for (item in snapshot.children) {
-                    val transferencia = Transferencia(
-                        id = item.key ?: "",
-                        monto = item.child("monto").getValue(Double::class.java) ?: 0.0,
-                        cuenta = item.child("cuenta").value?.toString() ?: "",
-                        fecha = item.child("fecha").value?.toString() ?: "",
-                        tipo = item.child("tipo").value?.toString() ?: ""
-                    )
-                    lista.add(transferencia)
-                }
-                transferencias.value = lista.sortedByDescending { it.fecha }
+                transferencias.value = getHistoryUseCase(documentNumber)
             } catch (e: Exception) {
-                // lista queda vacía
+                transferencias.value = emptyList()
             } finally {
                 isLoading.value = false
             }
